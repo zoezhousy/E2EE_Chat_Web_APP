@@ -1,0 +1,57 @@
+<!-- This page show wordlist and ask user to enter the word after -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recovery Key - Wordlist</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- External CSS -->
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="signUp-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <h2 class="text-center">Recovery Key - Wordlist</h2>
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+        <form action="/recovery_show_word_reg" method="post">
+            <div style="text-align: center;">
+                <div class="text-center"> Please <b>REMEMBER & COPY</b> following words. </div>
+                <div class="text-center">These words are the <b>ONLY</b> ways to recover your account.</div>
+            </div>
+            <div class = "wordlist" style="text-align: center;">
+                <ol>
+                    <li>{{word1}}  </li>
+                    <li>{{word2}}  </li>
+                    <li>{{word3}}  </li>
+                    <li>{{word4}}  </li>
+                    <li>{{word5}}  </li>
+                    <li>{{word6}}  </li>
+                    <li>{{word7}}  </li>
+                    <li>{{word8}}  </li>
+                    <li>{{word9}}  </li>
+                    <li>{{word10}} </li>
+                    <li>{{word11}} </li>
+                    <li>{{word12}} </li>
+                </ol>
+                <!-- word list in the form of  -->
+            </div>
+            
+            
+            <div class="text-center">
+                Already Write down this words? <button type="submit" class="btn btn-primary"> VALIDATE Correctness</button>
+            </div>
+            
+        </form>
+    </div>
+</body>
+</html>

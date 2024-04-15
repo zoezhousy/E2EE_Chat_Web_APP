@@ -1,0 +1,61 @@
+<!-- This page is for setting pass-phrase -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recovery Key - Set Up Passphrase</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- External CSS -->
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="signUp-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <h2 class="text-center">Recovery Key - Set Up Passphrase</h2>
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+        <form action="/recovery_passphrase_reg" method="post">
+                       
+            <div style="text-align: center;">
+                <h4 class = "text-center"> Please write down a Passphrase for recovery your account later.</h4>
+            </div>
+            <div class="form-group">
+                <label for="Passphrase">Passphrase</label>
+                <input type="password" class="form-control" id="Passphrase" name="Passphrase" required minlength="4" placeholder="Please enter a passkey for recovery">
+            </div>
+            <div class="form-group">
+                <label for="Passphrase-again">Re-enter Passphrase</label>
+                <input type="password" class="form-control" id="Passphrase-again" name="Passphrase-again" required minlength="4" placeholder="Please re-enter a passkey">
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" onclick="return checkPassphraseMatch()"> Set Passphrase</button>
+            </div>
+            
+        </form>
+    </div>
+
+    <script>
+        function checkPassphraseMatch() {
+            var passphrase1 = document.getElementById("Passphrase").value;
+            var passphrase2 = document.getElementById("Passphrase-again").value;
+
+            if (passphrase1 !== passphrase2) {
+                alert("Passphrases do not match. Please make sure both passphrases are the same.");
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>

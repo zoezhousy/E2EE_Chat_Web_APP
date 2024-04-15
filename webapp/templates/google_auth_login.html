@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Authenticator</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- External CSS -->
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="signUp-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <h2 class="text-center">OTP Authentication</h2>
+        <h3 class = "text-center"> username {{username}}</h3>
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+        <form action="/google_auth_login" method="post">
+            <!-- <div style="text-align: center;"> -->
+                <!-- <img src="{{qr_path}}" alt="QR code" style="width:200px;height:200px;"> -->
+                <!-- <img src="../static/img/qrcode.png" alt="QR code" style="width:200px;height:200px;"> -->
+            <!-- </div> -->
+            <div class="form-group">
+                <label for="OTPcode">6-digit OTP Code</label>
+                <input type="text" class="form-control" id="OTPcode" name="OTPcode" required>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Authenticate</button>
+            </div>
+            
+        </form>
+    </div>
+</body>
+</html>
