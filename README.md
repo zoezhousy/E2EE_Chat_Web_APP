@@ -1,8 +1,6 @@
 # End-to-end Encrypted Chat WebAPP
----
 This is a project for COMP3334 End-to-end Encrypted Chat Web Application
-##### Framework
----
+## Framework
 - Backend
   - Python 3
   - Flask Framework
@@ -16,7 +14,6 @@ This is a project for COMP3334 End-to-end Encrypted Chat Web Application
   - Docker
  
 ## Command to load this APP
----
 on Windows system
 1. Deploy the docker container using the following line within the folder that contains the docker-compose.yaml file
  execute following command: docker-compose up -d
