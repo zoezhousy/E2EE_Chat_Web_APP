@@ -12,7 +12,10 @@ This is a project for COMP3334 End-to-end Encrypted Chat Web Application
   - Nginx
 - Container
   - Docker
- 
+
+## before run the program !!!
+Please make sure **Docker Desktop** is installed! 
+
 ## Command to load this APP
 on Windows system
 1. Deploy the docker container using the following line within the folder that contains the docker-compose.yaml file
