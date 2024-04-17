@@ -13,7 +13,7 @@ This is a project for COMP3334 End-to-end Encrypted Chat Web Application
 - Container
   - Docker
 
-## before run the program !!!
+## Before run the program !!!
 Please make sure **Docker Desktop** is installed! 
 
 ## Command to load this APP
