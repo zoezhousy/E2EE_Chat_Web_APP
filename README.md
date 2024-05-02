@@ -14,7 +14,7 @@ This is a project for COMP3334 End-to-end Encrypted Chat Web Application
   - Docker
 
 ## Before run the program !!!
-Please make sure **Docker Desktop** is installed! 
+Please make sure **Docker Desktop** is installed and opened! 
 
 ## Command to load this APP
 on Windows system
