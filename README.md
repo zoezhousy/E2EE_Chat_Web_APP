@@ -25,3 +25,5 @@ on Windows system
 3. And also works over HTTP on port 8443
    access it at: https://group-26.comp3334.xavier2dc.fr:8443/   
    
+# Details
+You can see the file: "Report.pdf" to get more information about this project
